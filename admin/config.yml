@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Best3abjad/Best3abjad.github.io
+  repo: postblogger/postblogger.github.io
   branch: main # Branch to update (optional; defaults to master)
 media_folder: "uploads"
 collections:
