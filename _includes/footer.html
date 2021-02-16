@@ -1,0 +1,54 @@
+<div id="footer">
+
+    <div class="container">
+        
+        <div class="threecols">
+            <div class="col"><h3>Audience</h3><p>Selamat datang di blog ini semoga materi materi yang di berikan dari sini bisa membaeikan manfaat buat kalian</p><p><a href="/disclaimer">Disclaimer</a> - <a href="/privacy">Privacy</a></p></div>
+            <div class="col"><h3>Support</h3><p>Dukung kami dengan apa aja yang penting bisa memberikan informasi yang bermanfaat</p><p><a href="/about">About</a> - <a href="/about">Copyright</a> - <a href="/contact">Contact</a></p></div>
+            
+            <div class="col">
+            
+            </div>
+        </div>    
+        
+    </div>
+</div>
+
+{% include text-expand.html %}
+{% include cookie-consent.html %}
+{% include open-embed.html %}
+{% include new-window-fix.html %}
+{% include follow-buttons.html %}
+{% include buttons.html %}
+
+{% if page.url contains 'gdpr-compliant-comment' %}
+<script 
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+
+    {% include comments.html element=".post-content" github_account="jhvanderschee/jekyllcodex" require_cookie_consent="true" %}
+{% endif %}
+{% comment %}
+    {% include better-forms.html %}
+    {% include add-to-homescreen.html %}
+{% endcomment %}
+
+
+<!-- lightbox -->
+<script type="text/javascript" src="/js/lightbox.js"></script>
+<link rel="stylesheet" href="/css/lightbox.css">
+
+
+<!-- webshop -->
+<script type="text/javascript" src="/js/webshop.js"></script>
+<script type="text/javascript">
+    updateCartCount();
+    {% if page.layout == 'cart' %}populateCart();{% endif %}
+    {% if page.layout == 'checkout' %}initCheckoutForm(document.querySelector('#checkout form'));{% endif %}
+    {% if page.layout == 'paylink' %}redirectToPayment('https://useplink.com/payment/ssMgtkddEzgC4rKKJJ9T');{% endif %}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% include header.html %}
+  <div class="content">
+    <div class="container">
+
+		    	    <article>
+                    
+                      <header class="post-header">
+                        {% include breadcrumbs.html %}
+                        <h1 class="post-title">{{ page.title }}</h1>
+                      </header>
+                    
+                      <div class="post-content">
+                        {{ content }}
+                        <br />
+                        <ul class="columns">
+                        {% assign items = site.documen-plugin | sort: 'title' %}
+                        {% for item in items %}
+                          <li><a href="{{ item.url }}" {% if item.inactive %}style="color: #777777; text-decoration: none; cursor: text;"{% endif %}>{{ item.title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                        <br />
+                        <h3>Blog</h3>
+                        
+                        <p></p>
+                      </div>
+                      
+                      <!--list all add-ons per feature-->
+                    
+                    </article>
+    </div>
+  </div>
+
+{% include footer.html %}

@@ -1,0 +1,50 @@
+{% include header.html %}
+  <div class="content">
+    <div class="container">
+
+
+		    	<article>
+
+                    <div class="post-header">
+                        {% include breadcrumbs.html %}
+                        <br />
+                    </div>
+                    <div class="productpage">
+                        {% include productimages.html %}
+
+                        <div class="text">
+            
+                            <h1>{{ page.title }}</h1>
+                            {% if page.variants[0].price > 0 %}<h2>&euro; <span class="productprice">{% assign price_split = page.variants[0].price | round: 2 | split: "." %}{% assign integral = price_split[0] %}{% assign fractional = price_split[1] | append: "00" | truncate: 2, "" %}{{ integral }}.{{ fractional }}</span></h2>{% else %}
+                                {% include share-buttons.html %}
+                            {% endif %}
+            
+                            <form action="/donate/cart" onsubmit="return addToCart(this)">
+                                {% if page.variants[1].name %}
+                                    <div>
+                                        <label for="variant">Choose a {{ page.variant_type }}:</label>
+                                        <select onchange="updateBuyButton(this)" id="variant" name="variant">
+                                            {% for item in page.variants %}<option data-sku="{{ item.sku }}" data-variantname="{{ item.name }}" data-price="{{ item.price }}">{{ item.name }}</option>{% endfor %}
+                                        </select>
+                                    </div>
+                                {% endif %}
+                                {% if page.variants[0].price > 0 %}
+                                <div>
+                                    <input type="submit" data-url="{{ page.url }}" data-sku="{{ page.variants[0].sku }}" data-title="{{ page.title }}" data-varianttype="{{ page.variant_type }}" data-variantname="{{ page.variants[0].name }}" data-price="{{ page.variants[0].price }}" data-image="{{ page.image }}" value="Add to cart" />
+                                </div>
+                                {% endif %}
+                                
+                            </form>
+            
+                            {% include productimages.html %}
+            
+                            {{ content }}
+                        </div>
+                    </div>
+        
+                </article>
+
+        </div>
+    </div>
+    
+{% include footer.html %}

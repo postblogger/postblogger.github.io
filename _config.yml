@@ -1,0 +1,74 @@
+---
+title: postblogger
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  products:
+    title: Products
+    output: true
+    permalink: "/donate/:path/"
+  uploads:
+    title: Uploads
+    output: false
+  
+  
+  documen-plugin:
+    title: Documen Plugin
+    output: true
+    permalink: "/documen-plugin/:path/"  
+  
+defaults:
+- scope:
+    path: ''
+    type: pages
+  values:
+    layout: page
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+
+ 
+- scope:
+    path: ''
+    type: documen-plugin
+  values:
+    layout: documen-plugin-item    
+
+    
+- scope:
+    path: ''
+    type: products
+  values:
+    layout: product
+description: Membahas seputar tehnik blogging untuk meraih artikel menjadi page one
+  
+url: https://postblogger.github.io/
+permalink: "/blog/:title/"
+facebook_url: https://www.facebook.com/Peneliti-Online-130856032222822
+twitter_url: https://twitter.com/
+linkedin_url: https://www.linkedin.com/in/
+googleplus_url: https://plus.google.com/u/0/
+pinterest_url: 
+instagram_url: 
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+input_types:
+- text
+- textarea
+- email
+- date
+- checkbox
+- radio
+- number
+- submit
+form_engines:
+- cloudcannon
+- formspree
+- formbucket

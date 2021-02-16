@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postblogger</title>
+    <description>Membahas seputar tehnik blogging untuk meraih artikel menjadi page one</description>
+    <link>https://postblogger.github.io//</link>
+    <atom:link href="https://postblogger.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 16 Feb 2021 08:28:23 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Feb 2021 08:28:23 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+  </channel>
+</rss>

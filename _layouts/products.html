@@ -1,0 +1,40 @@
+{% include header.html %}
+  <div class="content">
+    <div class="container">
+
+		    	    <article>
+                    
+                      <header class="post-header">
+                        {% include breadcrumbs.html %}
+                        <h1 class="post-title">{{ page.title }}</h1>
+                      </header>
+                    
+                      <div class="post-content">
+                        {{ content }}
+                        <br />
+
+                        <ul id="productlist">
+                            {% assign items = site.products | sort: 'order_number' %}
+                            {% for item in items %}
+                            {% assign price_split = item.variants[0].price | round: 2 | split: "." %}
+                            {% assign integral = price_split[0] %}
+                            {% assign fractional = price_split[1] | append: "00" | truncate: 2, "" %}
+                            {% if fractional == '00' %}{% assign fractional = '-' %}{% endif %}
+                            <li>
+                                <a href="{{ item.url }}">
+                                    <div class="productimage" style="background-image: url(https://images.weserv.nl/?url={{ site.url | replace: 'https://','' | replace: 'http://','' }}{{ item.image }}&w=500&h=350&output=jpg&q=50);" data-cms-original-style="background-image: url(/img/slideshow5.jpg);"><div class="overlay"></div></div>
+                                    <h2>{{ item.title }}</h2>
+                                    <span>{% if item.variants[0].price > 0 %}&euro; {{ integral }}.{{ fractional }}{% else %}free{% endif %}</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                      </div>
+                      
+                      <!--list all add-ons per feature-->
+                    
+                    </article>
+    </div>
+  </div>
+
+{% include footer.html %}
